@@ -1,13 +1,14 @@
 <h1>All Articles</h1>
 
 <h3><%= link_to "New Article", new_article_path%></h3>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Actions</th>
-  </tr>
-  <%if @articles%>
+
+<%if @articles%>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
     <% @articles.each do |i|%>
       <tr>
         <td><%= i.title%></td>
@@ -19,5 +20,5 @@
         </td>
       </tr>
     <%end%>
-  <%end%>
-</table>
+  </table>
+<%end%>
