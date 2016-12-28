@@ -1,1 +1,21 @@
-<h1>Home index in articles</h1>
+<h1>All Articles</h1>
+
+<h3><%= link_to "New Article", new_article_path%></h3>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  <% @articles.each do |i|%>
+    <tr>
+      <td><%= i.title%></td>
+      <td><%= i.description%></td>
+      <td>
+        <button><%= link_to "View", article_path(i)%></button>
+        <button><%= link_to "Edit", edit_article_path(i)%></button>
+        <button>Delete</button>
+      </td>
+    </tr>
+  <%end%>
+</table>
