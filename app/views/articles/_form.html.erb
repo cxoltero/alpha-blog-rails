@@ -9,14 +9,15 @@
 <%end%>
 
 <%= form_for @article do |f| %>
-  <p>
-    <%= f.label :title %>:<br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %>:<br />
-    <%= f.text_area :description %>
-  </p>
-
-  <%= f.submit %>
+  <form>
+    <div class="form-group">
+      <label for="title"><%= f.label :description %></label>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <label for="description"><%= f.label :description %></label>
+      <%= f.text_area :description %>
+    </div>
+    <button type="submit" class="btn btn-default"><%= f.submit %></button>
+  </form>
 <% end %>
