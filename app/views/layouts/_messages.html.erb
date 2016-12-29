@@ -1,5 +1,5 @@
-<ul>
+<ul class="row">
   <% flash.each do |name, msg| %>
-    <li><%= msg %></li>
+    <li class="alert alert-success col-md-8 col-md-offset-2" style="list-style: none; margin-top: 20px;"><%= msg %></li>
   <% end %>
 </ul>

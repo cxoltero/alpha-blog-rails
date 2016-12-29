@@ -4,25 +4,29 @@
   <h3><%= link_to "New Article", new_article_path%></h3>
 
   <%if @articles%>
-  <table class="table table-hover">
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Actions</th>
-    </tr>
-    <% @articles.each do |i|%>
-      <tr>
-        <td class="col-md-3"><%= i.title%></td>
-        <td class="col-md-6"><%= i.description%></td>
-        <td class="col-md-3">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" style="color: white"><%= link_to "View", article_path(i)%></button>
-            <button type="button" class="btn btn-warning"><%= link_to "Edit", edit_article_path(i)%></button>
-            <button type="button" class="btn btn-danger"><%= link_to "Delete", article_path(i.id), method: :delete, data: {confirm: "Are you sure you want to delete this article?"}%></button>
-          </div>
-        </td>
-      </tr>
-    <%end%>
-  </table>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th style="text-align: center">Title</th>
+            <th style="text-align: center">Description</th>
+            <th style="text-align: center">Actions</th>
+          </tr>
+          <% @articles.each do |i|%>
+            <tr>
+              <td><%= i.title%></td>
+              <td><%= i.description%></td>
+              <td>
+                <%= link_to "Edit", edit_article_path(i), class: "btn btn-primary"%>
+                <%= link_to "Back", articles_path, class: "btn btn-primary"%>
+                <%= link_to "Delete", article_path(i.id), method: :delete, data: {confirm: "Are you sure you want to delete this article?"},  class: "btn btn-danger"%></button>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
   <%end%>
 </div>

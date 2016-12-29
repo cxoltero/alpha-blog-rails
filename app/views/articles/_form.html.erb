@@ -1,23 +1,44 @@
-<%if @article.errors.any?%>
-  <h3>The following errors prevented the article from saving</h3>
-
-  <% @article.errors.full_messages.each do |msg|%>
-    <ul>
-      <li><%= msg %></li>
-    </ul>
-  <%end%>
+<%if @article.errors.any? %>
+  <div class="alert alert-danger">
+    <h3>The following errors prevented the article from saving</h3>
+    <% @article.errors.full_messages.each do |msg|%>
+      <ul class="error-list">
+        <li><%= msg %></li>
+      </ul>
+    <%end%>
+  </div>
 <%end%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+          <%= f.label :title %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_field :title, class: "form-control",  placeholder: "Title for article", autofocus: true %>
+        </div>
+      </div>
 
-<%= form_for @article do |f| %>
-  <form>
-    <div class="form-group">
-      <label for="title"><%= f.label :description %></label>
-      <%= f.text_field :title %>
-    </div>
-    <div class="form-group">
-      <label for="description"><%= f.label :description %></label>
-      <%= f.text_area :description %>
-    </div>
-    <button type="submit" class="btn btn-default"><%= f.submit %></button>
-  </form>
-<% end %>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+            <%= f.label :description %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_area :description, rows: 10, class: "form-control",  placeholder: "Body for article", autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-2 col-md-offset-2">
+          <%= f.submit class: 'btn btn-primary'%>
+        </div>
+      </div><br/>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 col-md-offset-5">
+    [ <%= link_to "Cancel request and go back to articles", articles_path%> ]
+  </div>
+</div>
