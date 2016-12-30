@@ -120,3 +120,17 @@ footer{
 .custom-description{
   margin-top: 0;
 }
+
+
+//########################   ARTICLES INDEX #######################/
+
+.articles_content{
+  .article-title{
+    font-weight: bold;
+    font-size: 2.25vmin;
+  }
+  .article-body{
+    padding: 1vh 0;
+    border-top: 1px solid #eaeaea;
+  }
+}

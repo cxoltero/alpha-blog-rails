@@ -1,32 +1,26 @@
 <div class="container articles_content">
-  <h1>All Articles</h1>
+  <h1 align="center">All articles</h1>
 
-  <h3><%= link_to "New Article", new_article_path%></h3>
-
-  <%if @articles%>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 well">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <tr>
-            <th style="text-align: center">Title</th>
-            <th style="text-align: center">Description</th>
-            <th style="text-align: center">Actions</th>
-          </tr>
-          <% @articles.each do |i|%>
-            <tr>
-              <td><%= i.title%></td>
-              <td><%= i.description%></td>
-              <td>
-                <%= link_to "Edit", edit_article_path(i), class: "btn btn-primary"%>
-                <%= link_to "Back", articles_path, class: "btn btn-primary"%>
-                <%= link_to "Delete", article_path(i.id), method: :delete, data: {confirm: "Are you sure you want to delete this article?"},  class: "btn btn-danger"%></button>
-              </td>
-            </tr>
-          <%end%>
-        </table>
-      </div>
-    </div>
+    <% @articles.each do |article| %>
+        <div class="col-md-4">
+          <div class="well well-lg">
+            <div class="article-title">
+              <%= link_to article.title, article_path(article)%>
+            </div>
+
+            <div class="article-body">
+              <%= truncate(article.description, length: 100) %>
+            </div>
+
+            <div class="article-action">
+              <%= link_to "Edit Article", edit_article_path(article), class: "btn btn-sm btn-default"%>
+              <%= link_to "Delete Article", article_path(article.id), method: :delete,
+                          data: {confirm: "Are you sure you want to delete this article?"},
+                          class: "btn btn-sm btn-danger"%>
+            </div>
+          </div>
+        </div>
+    <%end%>
   </div>
-  <%end%>
 </div>
