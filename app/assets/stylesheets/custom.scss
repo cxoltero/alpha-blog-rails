@@ -90,3 +90,21 @@ footer{
   margin-top: 10vh;
   width: 100%
 }
+
+
+//########################   SHARED ERRORS #######################/
+
+.shared_errors {
+  ul {
+    li{
+      list-style: none;
+    }
+  }
+}
+
+
+//########################   MESSAGES ERRORS #######################/
+
+.messages{
+  margin-top: 2vh;
+}
