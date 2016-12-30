@@ -1,6 +1,6 @@
 <div class="show-container">
   <h2 align="center"><%= @article.title %></h2>
-  <div align="center">Written by: <%= link_to @article.user.username, user_path(@article.user) %></div>
+  <div align="center">Written by: <%= link_to @article.user.username, user_path(@article.user) if @article.user%></div>
 
   <div class="well col-md-8 col-md-offset-2">
     <h4 class="center custom-description"><strong>Description</strong></h4>
