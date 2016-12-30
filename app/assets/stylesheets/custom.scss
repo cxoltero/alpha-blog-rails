@@ -1,5 +1,5 @@
 $navbar-default-bg: #36454f;
-
+$slim-gray-border: 1px solid #eaeaea;
 .body-wrapper{
   padding-top: 50px;
 }
@@ -113,7 +113,7 @@ footer{
 //########################   SHOW VIEW #######################/
 
 .article-action{
-  border-top: 1px solid #eaeaea;
+  border-top: $slim-gray-border;
   padding-top: 5px;
 }
 
@@ -127,10 +127,18 @@ footer{
 .articles_content{
   .article-title{
     font-weight: bold;
-    font-size: 2.25vmin;
+    font-size: 2.5vmin;
   }
   .article-body{
     padding: 1vh 0;
-    border-top: 1px solid #eaeaea;
+    border-top: $slim-gray-border;
+  }
+
+  .article-meta-details {
+    border-top: $slim-gray-border;
+    margin-top: 1vh;
+    small{
+      font-size: 1vmin;
+    }
   }
 }
