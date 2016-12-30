@@ -8,12 +8,14 @@
 
           <div class="article-body">
             <%= truncate(article.description, length: 100) %>
-            <div class="article-meta-details">
-              <small>
-                <i>Created by: <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago,
-                  Last update: <%= time_ago_in_words(article.updated_at)%> ago</i>
-              </small>
-            </div>
+            <% if article.user %>
+              <div class="article-meta-details" >
+                <small>
+                  <i>Created by: <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago,
+                    Last update: <%= time_ago_in_words(article.updated_at)%> ago</i>
+                </small>
+              </div>
+            <%end %>
           </div>
 
           <div class="article-action">
