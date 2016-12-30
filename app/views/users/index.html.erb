@@ -1,0 +1,22 @@
+<div class="container articles_content">
+  <h1 align="center">All users</h1>
+  <div class="row">
+  <% @users.each do |user| %>
+      <div class="col-md-4">
+        <div class="well well-lg">
+          <div class="user-gravatar">
+            <%= link_to gravatar_for(user), user_path(user) %>
+          </div>
+
+          <div class="user-info">
+            <%= link_to user.username, user_path(user) %>
+          </div>
+
+          <div class="user-articles">
+            <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
+          </div>
+        </div>
+      </div>
+  <%end%>
+</div>
+</div>
