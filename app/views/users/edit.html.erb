@@ -1,5 +1,6 @@
-<div class="new-user-container">
-  <h1>Create a new user</h1>
+<div class="edit-user-container">
+  <h1>Editing <span><%= @user.username%></span></h1>
+  <br/>
 
   <%= render 'shared/errors', obj: @user %>
 
@@ -11,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-md-3 col-md-offset-5">
-      [ <%= link_to "Cancel request and go back to home", root_path%> ]
+      [ <%= link_to "Cancel request and go back to articles", articles_path%> ]
     </div>
   </div>
 </div>
