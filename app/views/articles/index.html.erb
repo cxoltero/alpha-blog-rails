@@ -1,5 +1,7 @@
 <div class="container articles_content">
   <h1 align="center">All articles</h1>
-
   <%= render 'article', obj: @articles%>
+  <div align="center">
+    <%= will_paginate %>
+  </div>
 </div>

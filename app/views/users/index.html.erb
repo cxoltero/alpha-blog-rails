@@ -1,5 +1,8 @@
 <div class="container articles_content">
   <h1 align="center">All users</h1>
+  <div>
+    <%= will_paginate %>
+  </div>
   <div class="row">
   <% @users.each do |user| %>
       <div class="col-md-4">
